@@ -1,38 +1,178 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Twitter Clone
 
-## Getting Started
+Twitter clone web application built using Next.js, Tailwind CSS, Prisma, and MongoDB. This clone allows users to post tweets, follow other users, like tweets, and perform various other Twitter-like functionalities.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+- User registration and authentication
+- User profiles with profile pictures and bio
+- Post tweets
+- Like and retweet tweets
+- Follow and unfollow users
+- Timeline displaying tweets from followed users
+- Explore page to discover new users and tweets
+- Notifications for likes, retweets, and new followers
+- Responsive design for mobile and desktop devices
+
+## Tech Stack
+
+- [Next.js](https://nextjs.org/): A React framework for building server-side rendered and statically generated applications.
+- [Tailwind CSS](https://tailwindcss.com/): A utility-first CSS framework for rapidly building custom designs.
+- [Prisma](https://www.prisma.io/): An open-source database toolkit for Node.js that provides an ORM (Object Relational Mapping) to interact with the database.
+- [MongoDB](https://www.mongodb.com/): A NoSQL database used for storing user data, tweets, and other application-related information.
+
+## Prerequisites
+
+To run the Twitter clone locally, you need to have the following installed on your machine:
+
+- Node.js: Version 14 or above
+- npm: Version 6 or above
+- MongoDB: Installed and running locally or accessible remote MongoDB instance
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/ayusshrathore/twitter-clone.git
+   cd twitter-clone
+   ```
+
+2. Install the dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure the environment variables:
+
+   Create a new file named `.env in the root directory and add the following variables:
+
+   ```
+   DATABASE_URL="mongodb://localhost:27017/twitter-clone" # Replace with your MongoDB connection URL
+   NEXTAUTH_JWT_SECRET="your-jwt-secret" # Replace with your own JWT secret key
+   NEXTAUTH_SECRET="your-nextauth-secret" # Replace with your own NextAuth secret key
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   The application will be accessible at `http://localhost:3000`.
+
+## Deployment
+
+To deploy the Twitter clone application, you can follow the deployment instructions specific to each technology used:
+
+- Next.js: Refer to the Next.js documentation on deployment options, such as Vercel, Netlify, or custom server setups.
+- Tailwind CSS: Deployment is typically handled as part of the Next.js deployment process.
+- Prisma and MongoDB: You can deploy the MongoDB database using services like MongoDB Atlas or deploy your own MongoDB instance. For Prisma, you can either deploy the Prisma server yourself or use a managed Prisma service.
+
+Ensure to set the appropriate environment variables for the deployed environment.
+
+## File Structure
+
+The file structure of the Twitter clone application is as follows:
+
+```
+├── pages/
+│   ├── _app.tsx
+│   ├── index.tsx
+│   ├── notifications.tsx
+│   └── api/
+│       ├── auth/
+│       │   ├── [...nextauth].ts
+│       ├── posts/
+│       │   ├── index.ts
+│       │   ├── [postId].ts
+│       ├── users/
+│       │   ├── index.ts
+│       │   ├── [userId].ts
+│       ├── notifications/
+│       │   ├── [userId].ts
+│       ├── comments.ts
+│       ├── current.ts
+│       ├── edit.ts
+│       ├── follow.ts
+│       ├── like.ts
+│       ├── register.ts
+│   ├── posts/
+│   │   ├── [postId].tsx
+│   ├── users/
+│   │   ├── [userId].tsx
+├── components/
+│   ├── layout/
+│   │   ├── FollowBar.tsx
+│   │   ├── Sidebar.tsx
+│   │   ├── SidebarItem.tsx
+│   │   ├── SidebarLogo.tsx
+│   │   ├── SidebarTweetButton.tsx
+│   ├── modals/
+│   │   ├── EditModal.tsx
+│   │   ├── LoginModal.tsx
+│   │   ├── Modal.tsx
+│   │   ├── RegisterModal.tsx
+│   ├── posts/
+│   │   ├── CommentFeed.tsx
+│   │   ├── CommentItem.tsx
+│   │   ├── PostFeed.tsx
+│   │   ├── PostItem.tsx
+│   ├── users/
+│   │   ├── UserBio.tsx
+│   │   ├── UserHero.tsx
+│   ├── Avatar.tsx
+│   ├── Button.tsx
+│   ├── Form.tsx
+│   ├── Header.tsx
+│   ├── ImageUpload.tsx
+│   ├── Input.tsx
+│   ├── Layout.tsx
+│   ├── NotificationsFeed.tsx
+│   └── ...
+├── libs/
+│   ├── prismadb.ts
+│   ├── fetcher.ts
+│   ├── serverAuth.ts
+│   └── ...
+├── hooks/
+│   ├── useCurrentUser.ts
+│   ├── useEditModal.ts
+│   ├── useFollow.ts
+│   ├── useLike.ts
+│   ├── useLoginModal.ts
+│   ├── useNotifications.ts
+│   ├── usePost.ts
+│   ├── usePosts.ts
+│   ├── useRegisterModal.ts
+│   ├── useUser.ts
+│   ├── useUsers.ts
+├── styles/
+│   ├── globals.css
+├── prisma/
+│   ├── schema.prisma
+├── public/
+│   ├── images/
+├── package.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Contributing
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Contributions to the Twitter clone project are welcome! If you find any issues or want to contribute enhancements, feel free to open an issue or submit a pull request. Please follow the standard GitHub workflow when contributing.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+When submitting a pull request, ensure to include a clear description of the changes and any necessary steps to test the changes.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## License
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+This Twitter clone project is licensed under the [MIT License](LICENSE).
 
-## Learn More
+## Acknowledgments
 
-To learn more about Next.js, take a look at the following resources:
+This project was inspired by the functionality and design of the Twitter platform.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+For any questions or inquiries, please contact [heyfreaker@gmail.com](mailto:heyfreaker@gmail.com).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Happy tweeting!
