@@ -21,6 +21,11 @@ Twitter clone web application built using Next.js, Tailwind CSS, Prisma, and Mon
 - [Prisma](https://www.prisma.io/): An open-source database toolkit for Node.js that provides an ORM (Object Relational Mapping) to interact with the database.
 - [MongoDB](https://www.mongodb.com/): A NoSQL database used for storing user data, tweets, and other application-related information.
 
+## Demo
+
+https://github.com/ayusshrathore/twitter-clone/assets/61450246/a5a1e045-bcc9-4d6e-b33a-1611ddf7667c
+
+
 ## Prerequisites
 
 To run the Twitter clone locally, you need to have the following installed on your machine:
